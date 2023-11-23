@@ -1,1 +1,0 @@
-from .facultad_routers import router as facultad_router

@@ -12,19 +12,18 @@ services:
   #     - "5173:5173"
 
 
-  backend:
+  web:
     build: ./backend
-    image: tiangolo/uvicorn-gunicorn-fastapi:python3.9
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./backend:/app
-    restart: always
+    ports:
+      - "8000:8000"
     environment:
-      - MODULE_NAME=main
-      - VARIABLE_NAME=app
+      - DEBUG=1
+    restart: always
     env_file:
       - ".env"
-    ports:
-      - "4000:4000"
     networks:
       app_net:
     depends_on:
