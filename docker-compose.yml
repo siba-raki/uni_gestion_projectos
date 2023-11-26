@@ -1,15 +1,15 @@
 version: '3'
 services:
-  # svelte-app:
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile
-    # restart: always
-  #   volumes:
-  #     - ./frontend:/app
-  #   ports:
-  #     - "4173:4173"
-  #     - "5173:5173"
+  svelte-app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "4173:4173"
+      - "5173:5173"
 
 
   web:

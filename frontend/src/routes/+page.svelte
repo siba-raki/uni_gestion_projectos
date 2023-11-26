@@ -1,6 +1,17 @@
 <script>
+  import Facultad from '../components/facultad/Facultad.svelte';
+  import Navbar from '../components/Navbar/Navbar.svelte';
   import "../app.css";
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+
+<main>
+  <Navbar />
+  <Facultad />
+</main>
+
+<style>
+  :global(body) {
+      background: #e8e6e3;
+    }
+</style>
