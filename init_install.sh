@@ -15,10 +15,8 @@ detectar_sistema() {
 }
 
 # Función para instalar Docker en Ubuntu
-
 instalar_docker_ubuntu() {
-
-echo "Instalando docker y docker compose en Ubuntu."
+  echo "Instalando docker y docker compose en Ubuntu."
 
   sudo apt-get update
 
@@ -60,15 +58,11 @@ echo "Instalando docker y docker compose en Ubuntu."
 
   npm i
 
-
 }
 
 # Función para instalar Docker en Rocky Linux
-
-
 instalar_docker_rocky() {
-
-  echo "Instalando docker y docker compose en Roky."
+  echo "Instalando Docker y Docker Compose en Rocky Linux."
 
   sudo dnf update -y
 
@@ -99,6 +93,38 @@ instalar_docker_rocky() {
   npm i
 }
 
+# Función para instalar Docker en CentOS
+instalar_docker_centos() {
+  echo "Instalando Docker y Docker Compose en CentOS."
+  sudo dnf install -y yum-utils device-mapper-persistent-data lvm2
+  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  sudo dnf install -y docker-ce docker-ce-cli containerd.io
+  sudo systemctl start docker
+  sudo systemctl enable docker
+  # ... (tu código adicional para CentOS, si es necesario)
+  echo "Instalando node y npm ."
+
+  sudo curl -fsSL https://rpm.nodesource.com/setup_19.x | sudo bash -
+
+  sudo dnf makecache
+
+  sudo dnf install -y nodejs
+
+  echo "Version Node":
+
+  node -v
+
+  echo "Version npm"
+
+  npm -v
+
+  cd /opt/uni_gestion_projectos/frontend
+
+  pwd
+
+  npm i
+}
+
 # Detectar el sistema operativo
 detectar_sistema
 
@@ -109,6 +135,9 @@ case $SISTEMA in
     ;;
   rocky)
     instalar_docker_rocky
+    ;;
+  centos)
+    instalar_docker_centos
     ;;
   *)
     echo "Sistema operativo no compatible."

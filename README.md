@@ -27,7 +27,7 @@ const API_URL = "http://<TU_IP>:8000/api";
 
 ### Para correr el projecto:
 
-#### Primero ejecutamos el archivo "init_install.sh" para instalar docker y docker compose, esto tambien instalara "node" y "npm" segun sistema operativo que tengamos, sea rocky linux o ubuntu.
+#### Primero ejecutamos el archivo "init_install.sh" para instalar docker y docker compose, esto tambien instalara "node" y "npm" segun sistema operativo que tengamos, sea rocky linux, ubuntu o centOs.
 
 > Nos dirigimos alsiguiente directorio
 
