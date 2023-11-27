@@ -1,7 +1,11 @@
 
 # Ejemplo del archivo .env
 ### Tiene que estar en la raiz del proyecto
+```poweshell
+vim /opt/uni_gestion_projectos/.env
+```
 
+> Pegamos las siguientes variables y guardamos el archivo
 ```poweshell
 KEY=secret_key
 POSTGRES_DB=bibliografias
