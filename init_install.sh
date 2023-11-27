@@ -70,6 +70,8 @@ instalar_docker_rocky() {
 
   echo "Instalando docker y docker compose en Roky."
 
+  sudo dnf update -y
+
   sudo dnf install -y yum-utils device-mapper-persistent-data lvm2
 
   sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
