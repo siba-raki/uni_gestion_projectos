@@ -26,6 +26,14 @@ const API_URL = "http://<TU_IP>:8000/api";
 ```poweshell
 cd /opt/uni_gestion_projectos
 ```
+#### Damos permisos de ejecucuin al archivo
+
+```poweshell
+chmod 755 init_install.sh
+```
+#### Empezamos a levantar los contenedores
+>Esto podria demorar unos minutos
+
 > Ejecutamos los siguientes comandos
 ```poweshell
 sudo docker-compose build
