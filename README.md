@@ -14,11 +14,11 @@ POSTGRES_PASSWORD=root
 HOST=IpdeTuMaquina
 ```
 
-### En frontend /src/api/api.js
+### En  "frontend/src/api/api.js"
 
 #### Colocar tambien la direccion de la ip
 ```poweshell
-vim /src/api/api.js
+vim frontend/src/api/api.js
 ```
 
 ```poweshell
