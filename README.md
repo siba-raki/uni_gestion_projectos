@@ -39,6 +39,11 @@ cd /opt/uni_gestion_projectos
 ```poweshell
 chmod 755 init_install.sh
 ```
+#### Ejecutamos el archivo "init_install.sh"
+```poweshell
+./init_install.sh
+```
+
 #### Empezamos a levantar los contenedores
 >Esto podria demorar unos minutos
 
