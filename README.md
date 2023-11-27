@@ -53,3 +53,7 @@ python3 manage.py makemigrations api
 ```poweshell
 python3 manage.py migrate api
 ```
+#### Nos dirigimos a nuestro navegador de preferencia y pegamos la siguiente URL
+```poweshell
+http://<TU_IP>:5173/
+```
