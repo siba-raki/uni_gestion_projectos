@@ -1,22 +1,47 @@
 
-ejemplo del archivo .env
-tiene que estar en la raiz del proyecto
+# Ejemplo del archivo .env
+### Tiene que estar en la raiz del proyecto
 
+```poweshell
 KEY=secret_key
 POSTGRES_DB=bibliografias
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=root
 HOST=IpdeTuMaquina
+```
 
-en /frontend/src/api/api.js
-colocar tambien la direccion de la ip
+### En frontend/src/api/api.js
 
-para correr el projecto:
-- estar en la raiz
-- sudo docker-compose build
-- sudo docker-compose up
-Mientras esté corriendo los contenedores:
-Ejecutar:
-- sudo docker exec -it uni_gestion_projectos_web_1 bash
-- python3 manage.py makemigrations
-- python3 manage.py migrate
+#### Colocar tambien la direccion de la ip
+```poweshell
+const API_URL = "http://<TU_IP>:8000/api";
+```
+
+### Para correr el projecto:
+
+#### Primero ejecutamos el archivo "init_install.sh" para instalar docker y docker compose, esto tambien instalara "node" y "npm" segun sistema operativo que tengamos, sea rocky linux o ubuntu.
+
+> Nos dirigimos alsiguiente directorio
+
+```poweshell
+cd /opt/uni_gestion_projectos
+```
+> Ejecutamos los siguientes comandos
+```poweshell
+sudo docker-compose build
+```
+```poweshell
+sudo docker-compose up
+```
+
+### Mientras esté corriendo los contenedores:
+> Ejecutar:
+```poweshell
+sudo docker exec -it uni_gestion_projectos_web_1 bash
+```
+```poweshell
+python3 manage.py makemigrations api
+```
+```poweshell
+python3 manage.py migrate api
+```
