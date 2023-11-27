@@ -49,16 +49,16 @@ chmod 755 init_install.sh
 
 > Ejecutamos los siguientes comandos
 ```poweshell
-sudo docker-compose build
+sudo docker compose build
 ```
 ```poweshell
-sudo docker-compose up
+sudo docker compose up -d
 ```
 
 ### Mientras esté corriendo los contenedores:
 > Ejecutar:
 ```poweshell
-sudo docker exec -it uni_gestion_projectos_web_1 bash
+sudo docker exec -it uni_gestion_projectos_web_1 /bash
 ```
 ```poweshell
 python3 manage.py makemigrations api
