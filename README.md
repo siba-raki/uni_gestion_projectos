@@ -14,9 +14,13 @@ POSTGRES_PASSWORD=root
 HOST=IpdeTuMaquina
 ```
 
-### En frontend/src/api/api.js
+### En frontend /src/api/api.js
 
 #### Colocar tambien la direccion de la ip
+```poweshell
+vim /src/api/api.js
+```
+
 ```poweshell
 const API_URL = "http://<TU_IP>:8000/api";
 ```
