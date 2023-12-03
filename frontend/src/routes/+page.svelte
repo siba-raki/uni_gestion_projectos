@@ -1,12 +1,9 @@
 <script>
-  import Facultad from '../components/facultad/Facultad.svelte';
-  import Navbar from '../components/Navbar/Navbar.svelte';
+  import Facultad from './facultades/+page.svelte';
   import "../app.css";
 </script>
 
-
 <main>
-  <Navbar />
   <Facultad />
 </main>
 
