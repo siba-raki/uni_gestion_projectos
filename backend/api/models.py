@@ -38,8 +38,8 @@ class Fuente(models.Model):
 
 class MateriaFuente(models.Model):
     id = models.BigAutoField(primary_key=True)
-    materia = models.ForeignKey('Materia', on_delete=models.CASCADE)
-    fuente = models.ForeignKey('Fuente', on_delete=models.CASCADE)
+    materia_id = models.ForeignKey('Materia', on_delete=models.CASCADE)
+    fuente_id = models.ForeignKey('Fuente', on_delete=models.CASCADE)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
     activo = models.BooleanField(default=True)

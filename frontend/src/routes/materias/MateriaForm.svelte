@@ -10,7 +10,6 @@
 
 	async function submitForm() {
 		try {
-			console.log({ descripcion, activo, facultad_id })
 			await postData(`materias`, { descripcion, activo, facultad_id });
 			getMaterias();
 		} catch (error) {

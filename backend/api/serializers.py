@@ -18,6 +18,9 @@ class FuenteSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class MateriaFuenteSerializer(serializers.ModelSerializer):
+    materia_nombre = serializers.ReadOnlyField(source='materia_id.descripcion')
+    fuente_nombre = serializers.ReadOnlyField(source='fuente_id.titulo')
+
     class Meta:
         model = MateriaFuente
         fields = '__all__'

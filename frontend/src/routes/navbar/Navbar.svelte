@@ -4,6 +4,7 @@
             <a href="/facultades" class="text-white hover:text-custom-skyblue">Facultades</a>
             <a href="/materias" class="text-white hover:text-custom-skyblue">Materias</a>
             <a href="/fuentes" class="text-white hover:text-custom-skyblue">Fuentes</a>
+            <a href="/materia_fuentes" class="text-white hover:text-custom-skyblue">MateriasFuentes</a>
         </li>
     </ul>
 </nav>

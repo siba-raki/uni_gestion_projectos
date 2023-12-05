@@ -9,7 +9,6 @@
 
 	async function submitForm() {
 		try {
-			console.log({ titulo, resumen, fecha_publicacion, activo })
 			await postData(`fuentes`, { titulo, resumen, fecha_publicacion, activo });
 			getFuentes();
 		} catch (error) {
