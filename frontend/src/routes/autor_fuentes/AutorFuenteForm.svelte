@@ -1,18 +1,18 @@
 <script>
 	import { postData } from '../../api/api';
 
-	export let getMateriaFuentes;
-	export let materias;
+	export let getAutorFuentes;
+	export let autores;
 	export let fuentes;
 
-    let materia_id = false;
-    let fuente_id = false;
+	let autor_id = false;
+	let fuente_id = false;
 	let activo = true;
 
 	async function submitForm() {
 		try {
-			await postData(`materia_fuentes`, { materia_id, fuente_id, activo });
-			getMateriaFuentes();
+			await postData(`autor_fuentes`, { autor_id, fuente_id, activo });
+			getAutorFuentes();
 		} catch (error) {
 			console.error('Error al crear:', error);
 		}
@@ -23,16 +23,22 @@
 	<form on:submit|preventDefault={submitForm} class="flex items-center justify-between">
 		<div class="flex items-center space-x-4">
 			<div class="flex items-center">
-				<label for="materia_id" class="block text-gray-700 text-sm font-bold mr-2"> Materia: </label>
-				<select class="border rounded w-full text-gray-700 w-full py-1 px-1 text-gray-700 leading-tight text-sm font-bold" bind:value={materia_id}>
-					{#each materias as materia}
-						<option value={materia.id}>{materia.descripcion}</option>
+				<label for="autor_id" class="block text-gray-700 text-sm font-bold mr-2"> Autor: </label>
+				<select
+					class="border rounded w-full text-gray-700 w-full py-1 px-1 text-gray-700 leading-tight text-sm font-bold"
+					bind:value={autor_id}
+				>
+					{#each autores as autor}
+						<option value={autor.id}>{autor.persona_nombre} {autor.persona_apellido}</option>
 					{/each}
 				</select>
 			</div>
-            <div class="flex items-center">
+			<div class="flex items-center">
 				<label for="fuente_id" class="block text-gray-700 text-sm font-bold mr-2"> Fuente: </label>
-				<select class="border rounded w-full text-gray-700 w-full py-1 px-1 text-gray-700 leading-tight text-sm font-bold" bind:value={fuente_id}>
+				<select
+					class="border rounded w-full text-gray-700 w-full py-1 px-1 text-gray-700 leading-tight text-sm font-bold"
+					bind:value={fuente_id}
+				>
 					{#each fuentes as fuente}
 						<option value={fuente.id}>{fuente.titulo}</option>
 					{/each}

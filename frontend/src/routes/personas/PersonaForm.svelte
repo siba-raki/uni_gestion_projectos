@@ -1,20 +1,18 @@
 <script>
 	import { postData } from '../../api/api';
 
-	export let getFuentes;
-	export let tipoFuentes;
-	let titulo = '';
-	let resumen = '';
-	let fecha_publicacion = '';
+	export let getPersonas;
+	let nombre = '';
+	let apellido = '';
+	let fecha_nacimiento = '';
 	let activo = false;
-	let tipo_id = false;
 
 	async function submitForm() {
 		try {
-			await postData(`fuentes`, { titulo, resumen, fecha_publicacion, tipo_id, activo });
-			getFuentes();
+			await postData(`personas`, { nombre, apellido, fecha_nacimiento, activo });
+			getPersonas();
 		} catch (error) {
-			console.error('Error al crear facultad:', error);
+			console.error('Error al crear Persona:', error);
 		}
 	}
 </script>
@@ -23,41 +21,33 @@
 	<form on:submit|preventDefault={submitForm} class="flex items-center justify-between">
 		<div class="flex items-center space-x-4">
 			<div class="flex items-center">
-				<label for="titulo" class="block text-gray-700 text-sm font-bold mr-2"> titulo: </label>
+				<label for="nombre" class="block text-gray-700 text-sm font-bold mr-2"> Nombre: </label>
 				<input
 					type="text"
-					id="titulo"
-					bind:value={titulo}
+					id="nombre"
+					bind:value={nombre}
 					class="shadow appearance-none border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 				/>
 			</div>
 			<div class="flex items-center">
-				<label for="resumen" class="block text-gray-700 text-sm font-bold mr-2"> Resumen: </label>
+				<label for="apellido" class="block text-gray-700 text-sm font-bold mr-2"> Apellido: </label>
 				<input
 					type="text"
-					id="resumen"
-					bind:value={resumen}
+					id="apellido"
+					bind:value={apellido}
 					class="shadow appearance-none border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 				/>
 			</div>
 			<div class="flex items-center">
-				<label for="fecha_publicacion" class="block text-gray-700 text-sm font-bold mr-2">
-					Fecha de publicación:
+				<label for="fecha_nacimiento" class="block text-gray-700 text-sm font-bold mr-2">
+					Fecha de nacimiento:
 				</label>
 				<input
-					type="datetime-local"
-					id="fecha_publicacion"
-					bind:value={fecha_publicacion}
+					type="date"
+					id="fecha_nacimiento"
+					bind:value={fecha_nacimiento}
 					class="shadow appearance-none border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 				/>
-			</div>
-			<div class="flex items-center">
-				<label for="tipo_id" class="block text-gray-700 text-sm font-bold mr-2"> Tipo: </label>
-				<select class="border rounded w-full text-gray-700 w-full py-1 px-1 text-gray-700 leading-tight text-sm font-bold" bind:value={tipo_id}>
-					{#each tipoFuentes as tipoFuente}
-						<option value={tipoFuente.id}>{tipoFuente.descripcion}</option>
-					{/each}
-				</select>
 			</div>
 			<div class="flex items-center">
 				<label for="activo" class="block text-gray-700 text-sm font-bold mr-2"> Activo: </label>
@@ -71,7 +61,7 @@
 			<button
 				type="submit"
 				class="bg-custom-blue hover:bg-custom-lightblue text-white font-bold py-2 px-4 rounded"
-				>Agregar Fuente</button
+				>Agregar Persona</button
 			>
 		</div>
 	</form>

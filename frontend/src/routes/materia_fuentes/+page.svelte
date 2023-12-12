@@ -46,12 +46,12 @@
             await deleteData(`materia_fuentes/${id}`);
             await getMateriaFuentes();
         } catch (error) {
-            console.error('Error al eliminar materia:', error);
+            console.error('Error al eliminar:', error);
         }
     }
 
-    function showModal(materia) {
-        materia_fuente_editada = materia;
+    function showModal(materia_fuente) {
+        materia_fuente_editada = materia_fuente;
     }
 
     function closeModal() {

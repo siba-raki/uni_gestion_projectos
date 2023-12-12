@@ -1,5 +1,5 @@
 <script>
-    export let fuentes = [];
+    export let personas = [];
     export let onEdit;
     export let onDelete;
 </script>
@@ -12,16 +12,13 @@
                 Id
             </th>
             <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                Titulo
+                Nombre
             </th>
             <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                Resumen
+                Apellido
             </th>
             <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                Fecha de publicación
-            </th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                Tipo
+                Fecha de nacimiento
             </th>
             <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Activo
@@ -32,34 +29,31 @@
         </tr>
     </thead>
     <tbody class="bg-white divide-y divide-gray-200">
-        {#each fuentes as fuente}
+        {#each personas as persona}
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-custom-lightblue">
-                    {fuente.id}
+                    {persona.id}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-custom-lightblue">
-                    {fuente.titulo}
+                    {persona.nombre}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-custom-lightblue">
-                    {fuente.resumen}
+                    {persona.apellido}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-custom-lightblue">
-                    {fuente.fecha_publicacion}
+                    {persona.fecha_nacimiento}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-custom-lightblue">
-                    {fuente.tipo_fuente_descripcion}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-custom-lightblue">
-                    {fuente.activo ? 'Sí' : 'No'}
+                    {persona.activo ? 'Sí' : 'No'}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <button
                         class="text-indigo-600 hover:text-indigo-900 mr-2"
-                        on:click={onEdit(fuente)}
+                        on:click={onEdit(persona)}
                     >
                         Editar
                     </button>
-                    <button class="text-red-600 hover:text-red-900" on:click={onDelete(fuente.id)}>
+                    <button class="text-red-600 hover:text-red-900" on:click={onDelete(persona.id)}>
                         Eliminar
                     </button>
                 </td>

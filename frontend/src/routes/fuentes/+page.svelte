@@ -7,15 +7,25 @@
     import Navbar from '../navbar/Navbar.svelte';
 
     let fuentes = [];
+    let tipoFuentes = [];
     let fuenteEditada = null;
 
     onMount(async () => {
         await getFuentes();
+        await getTipoFuentes();
     });
 
     async function getFuentes() {
         try {
             fuentes = await getData('fuentes/');
+        } catch (error) {
+            console.error('Error al cargar datos:', error);
+        }
+    }
+
+    async function getTipoFuentes() {
+        try {
+            tipoFuentes = await getData('tipo_fuentes/');
         } catch (error) {
             console.error('Error al cargar datos:', error);
         }
@@ -40,11 +50,11 @@
 </script>
 <div>
     <Navbar />
-    <FuenteForm getFuentes={getFuentes}/>
+    <FuenteForm getFuentes={getFuentes} tipoFuentes={tipoFuentes}/>
     <div class="container mx-auto">
         {#if fuenteEditada}
-        <FuenteEditModal fuente={fuenteEditada} onClose={closeModal} getFuentes={getFuentes}/>
+        <FuenteEditModal fuente={fuenteEditada} onClose={closeModal} tipoFuentes={tipoFuentes} getFuentes={getFuentes}/>
         {/if}
-        <FuenteTable {fuentes} onEdit={showModal} onDelete={deleteFuente} />
+        <FuenteTable {fuentes} onEdit={showModal} onDelete={deleteFuente}/>
     </div>
 </div>

@@ -4,6 +4,7 @@
     export let fuente;
     export let onClose;
     export let getFuentes;
+    export let tipoFuentes;
 
     async function editFuentes() {
         try {
@@ -47,6 +48,14 @@
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         />
                     </div>
+                    <div class="flex items-center">
+                        <label for="tipo_id" class="block text-gray-700 text-sm font-bold mr-2"> Tipo de fuente: </label>
+                        <select class="border rounded text-gray-700 py-2 px-3 text-gray-700 leading-tight text-sm font-bold" bind:value={fuente.tipo_id}>
+                            {#each tipoFuentes as tipoFuente}
+                            <option value={tipoFuente.id}>{tipoFuente.descripcion}</option>
+                            {/each}
+                        </select>
+                    </div>
                     <div class="mb-4">
                         <label for="activo" class="text-gray-700 text-sm font-bold mb-2"> Activo: </label>
                         <input
@@ -57,7 +66,6 @@
                         />
                     </div>
                 </div>
-
                 <div class="w-full md:w-1/2 px-2 mb-4">
                     <div class="mb-4">
                         <label for="resumen" class="block text-gray-700 text-sm font-bold mb-2">
@@ -68,7 +76,6 @@
                             bind:value={fuente.resumen} />
                     </div>
                 </div>
-
             </div>
 
             <div class="mt-4 flex justify-end">
